@@ -32,5 +32,4 @@ The **E-Farming Platform** is a full-stack MERN (MongoDB, Express, React, Node.j
 
 ---
 
-## 🏗️ Folder Structure
 

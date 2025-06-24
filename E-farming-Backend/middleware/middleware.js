@@ -1,6 +1,8 @@
 const jwt = require("jsonwebtoken");
 
-const JWT_SECRET = "mini-project-123";
+const JWT_SECRET = process.env.JWT_SECRET;
+
+
 
 function authenticateToken(req, res, next) {
   const token = req.header("Authorization")?.replace("Bearer ", "");

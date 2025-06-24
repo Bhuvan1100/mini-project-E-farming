@@ -17,7 +17,6 @@ const WeatherApp = () => {
   const [error, setError] = useState(false);
 
   const apiKey = '3f169134b9d20156ba63b212bfc9da71';
-
   const navigate = useNavigate();
 
   const getWeather = async () => {
@@ -61,85 +60,97 @@ const WeatherApp = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gradient-to-tr from-slate-100 to-slate-500 flex items-center justify-center font-sans px-4">
-      <div className="bg-white rounded-xl shadow-lg w-full max-w-2xl p-8 border border-gray-200">
+    <div className="min-h-screen bg-gradient-to-tr from-green-50 to-blue-100 flex items-center justify-center font-sans px-4">
+      <div className="bg-white rounded-2xl shadow-xl w-full max-w-3xl p-8 border border-green-200">
 
-      <button
+        <button
           onClick={() => navigate('/')}
-          className="flex items-center gap-2 px-4 py-2 bg-blue-100 text-blue-700 rounded-md shadow hover:bg-blue-200 transition duration-200"
+          className="flex items-center gap-2 px-4 py-2 mb-4 bg-green-100 text-green-800 rounded-md shadow hover:bg-green-200 transition duration-200"
         >
           <span className="text-lg">←</span>
-          <span className="text-sm font-medium">Back to Home</span>
-      </button>
+          <span className="text-sm font-semibold">Back to Home</span>
+        </button>
 
-        <h1 className="text-2xl font-semibold text-gray-800 mb-6 text-center">Weather Dashboard</h1>
+        <h1 className="text-3xl font-bold text-center text-green-700 mb-6">
+          Weather Dashboard
+        </h1>
 
-        <div className="flex items-center gap-3 mb-4">
+        <div className="flex items-center gap-3 mb-6">
           <input
             type="text"
             placeholder="Search city..."
             value={city}
             onChange={(e) => setCity(e.target.value)}
             onKeyDown={(e) => e.key === 'Enter' && getWeather()}
-            className="flex-grow px-4 py-2 rounded-md border border-gray-300 text-gray-700 focus:ring-2 focus:ring-blue-500 focus:outline-none"
+            className="flex-grow px-4 py-3 rounded-lg border border-gray-300 text-gray-700 shadow-sm focus:ring-2 focus:ring-green-400 focus:outline-none"
           />
           <button
             onClick={getWeather}
-            className="p-2 bg-blue-500 rounded-md hover:bg-blue-600 transition"
+            className="p-3 bg-green-600 rounded-lg hover:bg-green-700 transition"
           >
             <img src={searchIcon} alt="search" className="w-5 invert" />
           </button>
         </div>
 
-        {error && <p className="text-red-500 text-sm mb-4">Invalid city name. Please try again.</p>}
+        {error && (
+          <p className="text-red-500 text-sm mb-4 text-center">
+            Invalid city name. Please try again.
+          </p>
+        )}
 
         {weatherData && (
           <div className="text-gray-800">
-            <div className="text-center mb-6">
+            <div className="text-center mb-8">
               <img
                 src={getWeatherIcon(weatherData.weather[0].main)}
                 alt="weather icon"
-                className="w-28 mx-auto mb-3"
+                className="w-24 mx-auto mb-4"
               />
-              <h2 className="text-5xl font-bold">{Math.round(weatherData.main.temp)}°C</h2>
-              <p className="text-lg text-gray-600">{weatherData.name}, {weatherData.sys.country}</p>
-              <p className="text-sm italic text-gray-500 capitalize">{weatherData.weather[0].description}</p>
+              <h2 className="text-5xl font-bold">
+                {Math.round(weatherData.main.temp)}°C
+              </h2>
+              <p className="text-lg text-gray-600">
+                {weatherData.name}, {weatherData.sys.country}
+              </p>
+              <p className="text-sm italic text-gray-500 capitalize">
+                {weatherData.weather[0].description}
+              </p>
             </div>
 
             <div className="grid grid-cols-2 sm:grid-cols-3 gap-4 text-sm text-gray-700">
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Feels Like</p>
                 <p>{Math.round(weatherData.main.feels_like)}°C</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Min / Max</p>
                 <p>{Math.round(weatherData.main.temp_min)}° / {Math.round(weatherData.main.temp_max)}°</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Humidity</p>
                 <p>{weatherData.main.humidity}%</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Wind Speed</p>
                 <p>{weatherData.wind.speed} km/h</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Pressure</p>
                 <p>{weatherData.main.pressure} hPa</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Visibility</p>
                 <p>{weatherData.visibility / 1000} km</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Cloudiness</p>
                 <p>{weatherData.clouds.all}%</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Sunrise</p>
                 <p>{formatTime(weatherData.sys.sunrise)}</p>
               </div>
-              <div className="bg-gray-100 p-4 rounded-md shadow">
+              <div className="bg-green-50 p-4 rounded-lg shadow">
                 <p className="font-semibold">Sunset</p>
                 <p>{formatTime(weatherData.sys.sunset)}</p>
               </div>

@@ -151,7 +151,7 @@ const Dashboard = () => {
                 {sensorData.potassium !== undefined && <p><strong>Potassium:</strong> {sensorData.potassium}</p>}
               </div>
             ) : (
-              <p className="text-center text-gray-500">Loading sensor data...</p>
+              <p className="text-center text-gray-500">Loading sensor data wait for 20-30 sec......</p>
             )}
           </div>
         </div>

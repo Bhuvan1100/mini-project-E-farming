@@ -29,7 +29,7 @@ const Contact = () => {
           <h2 className="text-3xl font-bold mb-6">Contact Me</h2>
           <div className="flex items-center gap-3">
             <FaEnvelope className="text-lg" />
-            <span>bhuvanbhaskardeo@gmail.com</span>
+            <span>bhaskarbhuvan2004@gmail.com</span>
           </div>
           <div className="flex items-center gap-3">
             <FaMapMarkerAlt className="text-lg" />
@@ -38,7 +38,7 @@ const Contact = () => {
           <div className="flex items-center gap-3">
             <FaGithub className="text-lg" />
             <a
-              href="https://github.com/bhuvanbhaskardeo"
+              href="https://github.com/Bhuvan1100"
               target="_blank"
               rel="noopener noreferrer"
               className="hover:underline"

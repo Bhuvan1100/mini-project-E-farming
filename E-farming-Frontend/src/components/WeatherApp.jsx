@@ -16,7 +16,7 @@ const WeatherApp = () => {
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(false);
 
-  const apiKey = process.env.REACT_APP_API_KEY;
+  const apiKey = import.meta.env.VITE_API_KEY;
   const navigate = useNavigate();
 
   const getWeather = async () => {

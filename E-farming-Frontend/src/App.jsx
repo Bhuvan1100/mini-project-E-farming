@@ -6,7 +6,7 @@ import Dashboard from './components/Dashboard';
 import MainPage from './components/Home';
 import WeatherApp from './components/WeatherApp.jsx'
 import TeaGardenTourism from './components/tourism.jsx'
-
+import Contact from './components/Contact.jsx';
 
 function App() {
   return (
@@ -18,6 +18,9 @@ function App() {
         <Route path="/TeaGardenTourism" element={<TeaGardenTourism />} />
         <Route path="/dashboard"  element={ <Dashboard /> }/>
         <Route path="/weather"  element={ <WeatherApp /> }/>
+        <Route path="/contact"  element={ <Contact /> }/>
+
+        
         </Routes>
     </Router>
   );

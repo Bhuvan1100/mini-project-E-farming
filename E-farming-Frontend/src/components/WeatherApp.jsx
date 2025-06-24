@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import clear from '../assets/images/clear.png';
 import clouds from '../assets/images/clouds.png';
 import drizzle from '../assets/images/drizzle.png';
@@ -12,11 +12,11 @@ import searchIcon from '../assets/images/search.png';
 import { useNavigate } from 'react-router-dom';
 
 const WeatherApp = () => {
-  const [city, setCity] = useState('');
+  const [city, setCity] = useState('Ranchi'); // Default city
   const [weatherData, setWeatherData] = useState(null);
   const [error, setError] = useState(false);
 
-  const apiKey = '3f169134b9d20156ba63b212bfc9da71';
+  const apiKey = process.env.REACT_APP_API_KEY;
   const navigate = useNavigate();
 
   const getWeather = async () => {
@@ -41,6 +41,11 @@ const WeatherApp = () => {
       setWeatherData(null);
     }
   };
+
+  // Fetch weather for default city on initial load
+  useEffect(() => {
+    getWeather();
+  }, []); // Only runs once on component mount
 
   const getWeatherIcon = (type) => {
     switch (type) {

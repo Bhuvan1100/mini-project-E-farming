@@ -1,0 +1,16 @@
+# Ignore node_modules from both frontend and backend
+E-farming-Backend/node_modules/
+E-farming-Frontend/node_modules/
+
+# Ignore env files
+E-farming-Backend/.env
+E-farming-Frontend/.env
+
+# Ignore build/dist if created
+E-farming-Frontend/build/
+E-farming-Frontend/dist/
+
+# Ignore logs and temp files
+*.log
+.DS_Store
+.env.local
